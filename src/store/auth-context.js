@@ -30,7 +30,8 @@ const loginHandler = (token, expirationTime) => {
 setToken(token);
 localStorage.setItem('token', token);
 const remainingTime = calculateRemainingTime(expirationTime);
-setTimeout(logoutHandler, 3000);
+setTimeout(logoutHandler, 3600000);
+console.log(expirationTime)
 };
 
 const contextValue = {
