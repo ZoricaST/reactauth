@@ -2,7 +2,8 @@ import { useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import AuthContext from '../../store/auth-context';
-import classes from './ProfileForm.module.css';
+//import classes from './ProfileForm.module.css';
+import { Form, Button, Container,Row,Col} from 'react-bootstrap';
 
 const ProfileForm = () => {
   const history = useHistory();
@@ -33,15 +34,30 @@ history.replace('/');
 };
 
 return (
-<form className={classes.form} onSubmit={submitHandler}>
-<div className={classes.control}>
-<label htmlFor='new-password'>New Password</label>
-<input type='password' id='new-password' minLength="7" ref={newPasswordInputRef} />
-</div>
-<div className={classes.action}>
-<button>Change Password</button>
-</div>
-</form>
+  
+  <Container className=' text-info  border-dark '>
+   <Row className="justify-content-center w-1">
+    
+    <Col xs={8} md={4} className='border rounded' >
+
+      <Form  onSubmit={submitHandler}>
+
+        <Form.Group className="mb-3 font-weight-bold" controlId="formBasicPassword">
+            <Form.Label className='text-dark '>New Password</Form.Label>
+            <Form.Control type="password" id='new-password'placeholder="Password" minLength="7" ref={newPasswordInputRef}  />  
+        </Form.Group>
+      
+        <Button className='m-2 bg-info border border-dark' variant="primary" type="submit">Submit
+        </Button>
+
+      </Form>
+
+    </Col>
+    
+   </Row>
+  
+  </Container>
+
 );
 };
 

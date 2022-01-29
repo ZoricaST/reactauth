@@ -42,14 +42,14 @@
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
-  cursor: pointer;
+
 }
 
 .header a:hover {
-  color: #c291e2;
+  color: #2f6150;
 }
 
 .header button:hover {
-  background-color: #c291e2;
-  color: #38015c;
+  background-color: #7991b1;
+  color: #01195c;
 }

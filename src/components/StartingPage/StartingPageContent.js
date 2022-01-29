@@ -1,10 +1,16 @@
-import classes from './StartingPageContent.module.css';
+//import classes from './StartingPageContent.module.css';
+import { Container, Row, Col} from 'react-bootstrap';
+
 
 const StartingPageContent = () => {
   return (
-    <section className={classes.starting}>
-      <h1>Welcome on Board!</h1>
-    </section>
+   
+    <Container>
+      <Row>
+        <Col> <h1>Welcome!</h1></Col>
+      </Row>
+    </Container>
+   
   );
 };
 

@@ -1,12 +1,14 @@
 import { useContext } from 'react';
+import 'bootstrap/dist/css/bootstrap.css'
 import {
-  BrowserRouter as Router,
+  //BrowserRouter as Router,
   Route,
-  Link,
+ // Link,
   Switch,
   Redirect,
   useLocation
 } from "react-router-dom";
+
 
 import Layout from './components/Layout/Layout';
 import UserProfile from './components/Profile/UserProfile';
@@ -24,6 +26,7 @@ function App() {
         <Route path='/' exact>
           <HomePage />
         </Route>
+      
         {!authCtx.isLoggedIn && (
           <Route path='/auth'>
             <AuthPage />

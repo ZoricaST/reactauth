@@ -1,8 +1,9 @@
 import { useContext } from 'react';
+import { Navbar, Button,Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 import AuthContext from '../../store/auth-context';
-import classes from './MainNavigation.module.css';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
@@ -15,30 +16,48 @@ const MainNavigation = () => {
   };
 
   return (
-    <header className={classes.header}>
-      <Link to='/'>
-        <div className={classes.logo}>React Auth</div>
-      </Link>
-      <nav>
-        <ul>
+ 
+  
+      <Navbar bg="dark" variant="dark">
+         <Container fluid>
+         <Navbar.Brand as={Link}  to="/">React Auth</Navbar.Brand>
+       
+  
+        
+
+  
+
+    <Nav className="justify-content-end">
           {!isLoggedIn && (
-            <li>
-              <Link to='/auth'>Login</Link>
-            </li>
+            <Nav.Item >
+               <Nav.Link as={Link}  to="/auth">Login</Nav.Link>
+            
+              </Nav.Item>
           )}
+
           {isLoggedIn && (
-            <li>
-              <Link to='/profile'>Profile</Link>
-            </li>
+             <Nav.Item>
+             <Nav.Link as={Link}  to="/profile">Profile</Nav.Link>
+           </Nav.Item>
+           
           )}
+
           {isLoggedIn && (
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
+           
+               <Button variant="outline-info"  onClick={logoutHandler}>Logout</Button>
+           
+           
           )}
-        </ul>
-      </nav>
-    </header>
+          
+        </Nav>
+        
+      
+        </Container>
+        </Navbar>
+       
+
+    
+
   );
 };
 

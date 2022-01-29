@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import AuthContext from '../../store/auth-context';
 import classes from './AuthForm.module.css';
+import { Form, Button, Card, Container, Row, Col} from 'react-bootstrap';
 
 const AuthForm = () => {
 const history = useHistory();
@@ -71,37 +72,61 @@ alert(err.message);
 };
 
 return (
-<section className={classes.auth}>
-<h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-<form onSubmit={submitHandler}>
-<div className={classes.control}>
-<label htmlFor='email'>Your Email</label>
-<input type='email' id='email' required ref={emailInputRef} />
-</div>
-<div className={classes.control}>
-<label htmlFor='password'>Your Password</label>
-<input
-type='password'
-id='password'
-required
-ref={passwordInputRef}
-/>
-</div>
+  
+  <Container className=' text-info mt-2 border-dark my-auto'>
+    <Card>
+   <Row className="justify-content-center  w-1">
+    
+    <Col xs={8} md={4} className='border rounded' >
+    <h1 className='text-center'>{isLogin ? 'Login' : 'Sign Up'}</h1>
+      <Form  onSubmit={submitHandler}>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email"id='email' required ref={emailInputRef} />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+    
+
+
+      <Form.Group className="mb-3 font-weight-bold" controlId="formBasicPassword">
+            <Form.Label >Your Password</Form.Label>
+            <Form.Control 
+            type="password" 
+            placeholder="Password" 
+            minLength="7" 
+            id='password'
+            required
+            ref={passwordInputRef} />  
+        </Form.Group>
+
 <div className={classes.actions}>
 {!isLoading && (
 <button>{isLogin ? 'Login' : 'Create Account'}</button>
 )}
 {isLoading && <p>Sending request...</p>}
-<button
+
+<Button
 type='button'
 className={classes.toggle}
 onClick={switchAuthModeHandler}
 >
 {isLogin ? 'Create new account' : 'Login with existing account'}
-</button>
+</Button>
 </div>
-</form>
-</section>
+
+      </Form>
+
+    </Col>
+    
+   </Row>
+  </Card>
+  </Container>
+
+
 );
 };
 

@@ -7,13 +7,13 @@ login: (token) => {},
 logout: () => {},
 });
 
-const calculateRemainingTime = (expirationTime)=>{
-const currentTime = new Date().getTime();
-const adjExpirationTime = new Date(expirationTime).getTime();
+//const calculateRemainingTime = (expirationTime)=>{
+//const currentTime = new Date().getTime();
+//const adjExpirationTime = new Date(expirationTime).getTime();
 
-const remainingDuration = adjExpirationTime - currentTime;
-return remainingDuration;
-}
+//const remainingDuration = adjExpirationTime - currentTime;
+//return remainingDuration;
+//}
 
 export const AuthContextProvider = (props) => {
 const initialToken = localStorage.getItem('token')
@@ -29,7 +29,7 @@ localStorage.removeItem('token', token);
 const loginHandler = (token, expirationTime) => {
 setToken(token);
 localStorage.setItem('token', token);
-const remainingTime = calculateRemainingTime(expirationTime);
+//const remainingTime = calculateRemainingTime(expirationTime);
 setTimeout(logoutHandler, 3600000);
 console.log(expirationTime)
 };
